@@ -1,0 +1,16 @@
+Package: brewdata
+Type: Package
+Title: Extracting Usable Data from the Grad Cafe Results Search
+Version: 0.3
+Date: 2015-01-27
+Author: Nathan Welch
+Maintainer: Nathan Welch <nathan.welch@me.com>
+Description: Retrieves and parses graduate admissions survey data from the Grad Cafe website (http://thegradcafe.com).
+License: GPL (>= 2)
+Depends: RCurl, XML, stringdist, tools
+Suggests: rgl, scatterplot3d
+LazyData: TRUE
+Packaged: 2015-01-28 02:50:13 UTC; Nathan
+NeedsCompilation: no
+Repository: CRAN
+Date/Publication: 2015-01-28 07:39:54
