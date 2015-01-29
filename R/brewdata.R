@@ -21,55 +21,12 @@ function( years=2015, term="F", degree="phd", focus="statistics",
 	)
 
 	#Scape GradeCafe Results Search and fill the 'data' data.frame
-	app_cycles = paste( TERM, YEARS,"|", sep="", collapse="")
-	tmp = nchar(app_cycles)-1
-	app_cycles = substring(app_cycles,0,tmp); rm(tmp)
-	
-	url = paste( "http://www.thegradcafe.com/survey/index.php?q=",
-		FOCUS,"&t=a&pp=250&o=d&p=", sep="")
-	keep_scrolling = fetch = TRUE
-	df = results = data.frame(); i=1; record_ct=0
-	while( fetch )
-	{
-		cat( "Downloading page", i, "from GradCafe Results Search.\n" )
-		page_i = paste(url,i, sep="")
-		raw_i = readHTMLTable( page_i )[[1]]
-		df_i = data.frame( 
-			raw_i$Institution,  
-			raw_i$"Decision & Date", 
-			raw_i$St1,
-			raw_i$"Program (Season)"
-			)[-1,]
-	
-		colnames(df_i) = c("school","results","status","program")
-	
-		#Next couple lines force the loop to advance until we visit the app year.
-		#The keep_scrolling variable evaluates to TRUE until we see the first
-		#records. Once we see that first record, the app_year_term variable
-		#takes over. The loop will continue until we get to the end of the
-		#dataset we want. Note that initalizing record_ct to 0 and using max
-		#record_ct guarantees the loop terminates after we've created the
-		#dataset we want--and not before.
-		record_ct = max( sum( grep( min(YEARS), df_i$program ) ), record_ct )
-		keep_scrolling = ifelse( record_ct==0, TRUE, FALSE )
-		
-		#test whether or not we should break out of the loop
-		app_year_term = grep( app_cycles, df_i$program )
-		if( keep_scrolling | length( app_year_term )>0 ) 
-		{
-			df = rbind( df, df_i[app_year_term,] )
-			i=i+1
-		} else {
-			fetch=FALSE
-			data = df[ grep( DEGREE, tolower( df$program ) ), ]     
-		}
-	}
-	#dump all the temporary and index variables
-	rm(list=c("fetch","i","page_i","raw_i","df_i","df","url","record_ct") )
+	data = getGradCafeData( YEARS, TERM, DEGREE, FOCUS )
 	
 	#Fill the 'results' data.frame with the parsed info. The results in the
 	#'data' data.frame are unusable strings. Call the parseResults method to 
 	#gather self-reported personal statistics (gpa, gre, decision date).
+	results = data.frame()
 	for( results_i in data$results ){
 		results = rbind( results, parseResults( results_i ) )
 	}

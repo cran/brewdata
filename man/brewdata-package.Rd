@@ -10,8 +10,8 @@ biostatistics graduate admissions data reported in the Grad Cafe Results Search.
 \tabular{ll}{
 Package: \tab brewdata\cr
 Type: \tab Package\cr
-Version: \tab 0.3\cr
-Date: \tab 2015-01-27\cr
+Version: \tab 0.4\cr
+Date: \tab 2015-01-29\cr
 License: \tab GPL(>=2) \cr
 }
 brewdata() is the primary method of this package. It returns a data frame of 

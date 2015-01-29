@@ -21,7 +21,6 @@ Grad Cafe's Results Search page, then that record would appear if 2014 is
 part of the years searched. The four digit year (e.g. 2010, 2012, 1999, etc.) 
 is the only acceptable date format. Inputs may be a single value or a list such
 as 2010:2015 or c(2011,2013,2015). The default is 2015.
-list of the four digit years desired in the dataset
 }
   \item{term}{
 \code{term} indicates which term an applicant would begin graduate study. There
@@ -35,9 +34,12 @@ Users must specify exactly one and enclose the value in quotes. 'masters' or
 'phd' are the only acceptable values for this field. The default is 'phd'. 
 }
   \item{focus}{
-\code{focus} specifies whether the program is 'statistics' or 'biostatistics'. 
-Users may select only one value and enclose the correct spelling in quotes. The
-default value is 'statistics'. 
+\code{focus} specifies the program. Any term that returns results on the 
+Grad Cafe is acceptable, but brewdata was tuned using 'statistics' or 
+'biostatistics'. School name mappings could be quite poor for any value 
+other than these two.  If you choose a value besides 'statistics' or 'biostatistics',
+it is strongly suggested to check the school name mapping by setting map=TRUE.
+The default value is 'statistics'.
 }
   \item{resolution}{
 \code{resolution} is related to the school name parsing algorithm. This
@@ -135,7 +137,8 @@ desired department. See below for an example.
 
 \seealso{
 \code{\link{findScorePercentile}}, \code{\link{parseResults}}, 
-\code{\link{parseSchools}}, \code{\link{translateScore}}
+\code{\link{parseSchools}}, \code{\link{translateScore}},
+\code{\link{getGradCafeData}}, \code{\link{getMaxPages}}
 }
 \examples{
 #Get data for fall 2015 PhD statistics admission decisions

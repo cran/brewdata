@@ -45,7 +45,8 @@ or other ('O').
 }
 \seealso{
 \code{\link{findScorePercentile}}, \code{\link{brewdata}}, 
-\code{\link{parseSchools}}, \code{\link{translateScore}}
+\code{\link{parseSchools}}, \code{\link{translateScore}},
+\code{\link{getGradCafeData}}, \code{\link{getMaxPages}}
 }
 \examples{
 #"Decision and Date" string parsing

@@ -30,7 +30,8 @@ GRE Score Guide: https://www.ets.org/s/gre/pdf/gre_guide.pdf
 }
 \seealso{
 \code{\link{brewdata}}, \code{\link{parseResults}}, 
-\code{\link{parseSchools}}, \code{\link{translateScore}}
+\code{\link{parseSchools}}, \code{\link{translateScore}}, 
+\code{\link{getGradCafeData}}, \code{\link{getMaxPages}}
 }
 \examples{
 #Quantitative percentile score

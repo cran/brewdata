@@ -47,7 +47,8 @@ normalizes the names reported on the website.
 }
 \seealso{
 \code{\link{findScorePercentile}}, \code{\link{parseResults}}, 
-\code{\link{parseSchools}}, \code{\link{translateScore}}
+\code{\link{parseSchools}}, \code{\link{translateScore}},
+\code{\link{getGradCafeData}}, \code{\link{getMaxPages}}
 }
 \examples{
 x = c( "university of california--berkeley","university of california--berkly", 
